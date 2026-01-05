@@ -1,0 +1,74 @@
+---
+import "../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Welcome to SelfMadeSystem's Minecraft SMP</title>
+  </head>
+  <body
+    class="min-h-screen bg-linear-to-br from-green-200 via-blue-100 to-yellow-100 flex items-center justify-center"
+  >
+    <main
+      class="bg-white/80 rounded-xl shadow-2xl p-10 max-w-lg w-full text-center border border-gray-200"
+    >
+      <h1
+        class="text-3xl md:text-4xl font-extrabold text-green-700 mb-4 drop-shadow"
+      >
+        Welcome to<br /><span class="text-blue-700">SelfMadeSystem's</span> Minecraft
+        SMP
+      </h1>
+      <p class="text-lg text-gray-700 mb-6">
+        A friendly, community-driven Minecraft Survival Multiplayer server.<br
+        />Join, build, and adventure together!
+      </p>
+      <div class="flex flex-col gap-2 items-center">
+        <div class="relative flex items-center gap-2">
+          <span
+            id="server-ip"
+            class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full font-mono text-sm shadow select-all cursor-pointer"
+            >Server IP: <b id="copy-btn">mc.shoghisimon.ca</b></span
+          >
+          <span
+            id="copy-popup"
+            class="absolute left-1/2 -translate-x-1/2 top-[-2.2rem] bg-black text-white text-xs rounded px-3 py-1 opacity-0 pointer-events-none transition-opacity duration-300 z-10"
+            style="white-space:nowrap;">Copied!</span
+          >
+        </div>
+        <span
+          class="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-mono text-sm shadow"
+          >Version: <b>1.21.11</b></span
+        >
+      </div>
+      <footer class="mt-8 text-xs text-gray-400">
+        &copy; {new Date().getFullYear()} SelfMadeSystem SMP
+      </footer>
+    </main>
+  </body>
+</html>
+
+<script>
+  const ip = "mc.shoghisimon.ca";
+  const copyBtn = document.getElementById("copy-btn");
+  const popup = document.getElementById("copy-popup")!;
+  copyBtn?.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(ip);
+      popup.style.opacity = "1";
+      setTimeout(() => {
+        popup.style.opacity = "0";
+      }, 1200);
+    } catch (e) {
+      popup.textContent = "Failed to copy";
+      popup.style.opacity = "1";
+      setTimeout(() => {
+        popup.style.opacity = "0";
+        popup.textContent = "Copied!";
+      }, 1500);
+    }
+  });
+</script>
