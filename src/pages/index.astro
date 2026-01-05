@@ -31,7 +31,7 @@ import "../styles/global.css";
           <span
             id="server-ip"
             class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-full font-mono text-sm shadow select-all cursor-pointer"
-            >Server IP: <b id="copy-btn">mc.shoghisimon.ca</b></span
+            >Server IP: <b>mc.shoghisimon.ca</b></span
           >
           <span
             id="copy-popup"
@@ -53,7 +53,7 @@ import "../styles/global.css";
 
 <script>
   const ip = "mc.shoghisimon.ca";
-  const copyBtn = document.getElementById("copy-btn");
+  const copyBtn = document.getElementById("server-ip");
   const popup = document.getElementById("copy-popup")!;
   copyBtn?.addEventListener("click", async () => {
     try {
